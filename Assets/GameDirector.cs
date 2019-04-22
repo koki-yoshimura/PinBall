@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class GameDirector : MonoBehaviour {
 
-    private GameObject pointText;
-
+    GameObject pointText;
     int point = 0;
 
     public void largestar()

@@ -8,12 +8,12 @@ public class BallController : MonoBehaviour
     //ボールが見える可能性のあるz軸の最大値
     private float visiblePosZ = -6.5f;
 
-    GameObject director;
+    private GameObject director;
 
     //ゲームオーバを表示するテキスト
     private GameObject gameoverText;
  
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collider other)
     {
         if (other.gameObject.tag == "LargeStarTag")
         {
@@ -36,7 +36,7 @@ public class BallController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        this.director = GameObject.Find("GameDirector");
+        this.director = GameObject.Find("point");
 
         //シーン中のGameOverTextオブジェクトを取得
         this.gameoverText = GameObject.Find("GameOverText");
@@ -50,6 +50,7 @@ public class BallController : MonoBehaviour
         {
             //GameoverTextにゲームオーバを表示
             this.gameoverText.GetComponent<Text>().text = "Game Over";
+
 
         }
     }
