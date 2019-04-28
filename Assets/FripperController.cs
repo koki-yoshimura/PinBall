@@ -24,6 +24,46 @@ public class FripperController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        Touch[] touches = Input.touches;
+
+        foreach (var touch in touches)
+        {
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            {
+                if (touch.position.x > Screen.width / 2)
+                {
+                    if (tag == "RightFripperTag")
+                    {
+                        SetAngle(this.flickAngle);
+                    }
+                }
+                else
+                {
+                    if (tag == "LeftFripperTag")
+                    {
+                        SetAngle(this.flickAngle);
+                    }
+                }
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                if (tag == "LeftFripperTag")
+                {
+                    SetAngle(this.defaultAngle);
+                }
+
+
+                else
+                {
+                    if (tag == "RightFripperTag")
+                    {
+                        SetAngle(this.defaultAngle);
+                    }
+
+                }
+        }
+       }
+
 
         //左矢印キーを押した時左フリッパーを動かす
         if (Input.GetKeyDown(KeyCode.LeftArrow) && tag == "LeftFripperTag")

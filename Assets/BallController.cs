@@ -13,7 +13,7 @@ public class BallController : MonoBehaviour
     //ゲームオーバを表示するテキスト
     private GameObject gameoverText;
  
-    private void OnCollisionEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "LargeStarTag")
         {
